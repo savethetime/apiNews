@@ -46,11 +46,6 @@
     opacity: .5;
 }
 
-@media screen and (max-width: 960px){
-    #mobile-gnb-btn {
-        visibility: visible;
-    }
-}
 
 .head-line{
     margin-top: 1em;

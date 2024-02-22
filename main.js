@@ -13,7 +13,7 @@ menus.forEach(menu=>addEventListener("click", (event)=>getNewsByCategory(event))
 
 
 const getLatestNews = async ()=>{
-    const url= new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
+    const url= new URL(`https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&apiKey=${API_KEY}`
     );
     const response = await fetch(url);
     const data = await response.json();
@@ -25,7 +25,7 @@ const getLatestNews = async ()=>{
 const getNewsByCategory=(event)=>{
     const category = event.target.textContent.toLowerCase();
     const url = new URL(
-        `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
+        `https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
     );
     const response = await fetch(url);
     const data = await response.json();
@@ -36,7 +36,7 @@ const getNewsByCategory=(event)=>{
     const getNewsByKeyword= async()=>{
     const keyword = document.getElementById("search-input").value;
     const url = new URL(
-        `https://newsapi.org/v2/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`
+        `https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`
     );
     const response = await fetch(url);
     const data = await response.json();

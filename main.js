@@ -1,11 +1,3 @@
-const openNav = () => {
-    document.getElementById("mySidenav").style.width = "250px";
-};
-
-const closeNav = () => {
-    document.getElementById("mySidenav").style.width = "0";
-};
-
 const API_KEY=`7188006103df4e1dbdeec801d3df41c1`;
 let newsList = [];
 const menu = document.querySelectorAll(".menus button")
@@ -13,7 +5,8 @@ menus.forEach(menu=>addEventListener("click", (event)=>getNewsByCategory(event))
 
 
 const getLatestNews = async ()=>{
-    const url= new URL(`https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&apiKey=${API_KEY}`
+    const url= new URL(
+        `https://soft-lollipop-22f0e3.netlify.app/top-headlines?country=us`
     );
     const response = await fetch(url);
     const data = await response.json();
@@ -25,7 +18,7 @@ const getLatestNews = async ()=>{
 const getNewsByCategory=(event)=>{
     const category = event.target.textContent.toLowerCase();
     const url = new URL(
-        `https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
+        `https://soft-lollipop-22f0e3.netlify.app/top-headlines?country=us&category=${category}`
     );
     const response = await fetch(url);
     const data = await response.json();
@@ -36,7 +29,7 @@ const getNewsByCategory=(event)=>{
     const getNewsByKeyword= async()=>{
     const keyword = document.getElementById("search-input").value;
     const url = new URL(
-        `https://dancing-gumdrop-55f882.netlify.app/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`
+        `https://soft-lollipop-22f0e3.netlify.app/top-headlines?country=us&q=${keyword}`
     );
     const response = await fetch(url);
     const data = await response.json();
@@ -66,6 +59,15 @@ const render=()=>{
 console.log("html", newsHTML)
     document.getElementById('news-board').innerHTML=newsHTML;
 };
+
+const openNav = () => {
+    document.getElementById("mySidenav").style.width = "250px";
+};
+
+const closeNav = () => {
+    document.getElementById("mySidenav").style.width = "0";
+};
+
 
 getLatestNews();
 

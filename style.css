@@ -78,3 +78,26 @@
 .news{
     border-bottom: 2px solid black;
 }
+
+
+
+/* 모바일 화면에서만 햄버거 메뉴 버튼 표시 */
+#mobile-gnb-btn {
+    display: none; /* 기본적으로는 숨김 */
+}
+
+/* PC 화면에서 메인 메뉴 버튼 표시 */
+.menus button {
+    display: inline-block; /* 기본적으로 버튼 표시 */
+}
+
+/* 화면 크기가 768px 미만일 경우 */
+@media screen and (max-width: 768px) {
+    #mobile-gnb-btn {
+        display: block; /* 모바일 화면에서 햄버거 메뉴 버튼 표시 */
+    }
+
+    .menus button {
+        display: none; /* 모바일 화면에서 메인 메뉴 버튼 숨김 */
+    }
+}

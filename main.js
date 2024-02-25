@@ -59,7 +59,7 @@ const getNewsByCategory = async (event) => {
     const getNewsByKeyword= async()=>{
     const keyword = document.getElementById("search-input").value;
     url = new URL(
-        `https://shiny-semolina-f6adf3.netlify.app/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`
         //https://newsapi.org/v2/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}
     );
     getNews();
@@ -125,8 +125,7 @@ const paginationRender = () => {
     //firstPage
     const firstPage = lastPage - (groupSize - 1) <= 0 ? 1: lastPage - (groupSize - 1);
 
-    let paginationHTML = `<li class="page-item" onclick="moveToPage(${
-        page-1})"><a class="page-link" href="#">Previous</a></li>`;
+    let paginationHTML = `<li class="page-item" onclick="moveToPage(${page-1})"><a class="page-link" href="#">Previous</a></li>`;
 
     for(let i = firstPage; i <= lastPage; i++) {
         paginationHTML += `<li class="page-item ${

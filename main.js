@@ -5,7 +5,7 @@ menus.forEach((menu) =>
 menu.addEventListener("click", (event) => getNewsByCategory(event))
 );
 
-let url = new URL(`https://shiny-semolina-f6adf3.netlify.app/top-headlines?country=us&apiKey=${API_KEY}`)
+let url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
  //https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}
 
  let totalResults = 0
@@ -40,7 +40,7 @@ const getNews = async () => {
 
 const getLatestNews = async () => {
      url= new URL(
-        `https://shiny-semolina-f6adf3.netlify.app/top-headlines?country=us&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
          //https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}
     );
    
@@ -50,7 +50,7 @@ const getLatestNews = async () => {
 const getNewsByCategory = async (event) => {
     const category = event.target.textContent.toLowerCase();
     url = new URL(
-        `https://shiny-semolina-f6adf3.netlify.app/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
         //https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}
     );
     getNews();
@@ -125,15 +125,17 @@ const paginationRender = () => {
     //firstPage
     const firstPage = lastPage - (groupSize - 1) <= 0 ? 1: lastPage - (groupSize - 1);
 
-    let paginationHTML = ``;
+    let paginationHTML = `<li class="page-item" onclick="moveToPage(${
+        page-1})"><a class="page-link" href="#">Previous</a></li>`;
 
     for(let i = firstPage; i <= lastPage; i++) {
         paginationHTML += `<li class="page-item ${
             i===page? "active":""
         }" onclick = "moveToPage(${i})"><a class="page-link" >${i}</a></li>`;
     }
-
-  document.querySelector(".pagination").innerHTML = paginationHTML;
+    paginationHTML += `<li class="page-item" onclick="moveToPage(${
+        page+1})"><a class="page-link" href="#">Next</a></li>`
+    document.querySelector(".pagination").innerHTML = paginationHTML;
 
 };
 
